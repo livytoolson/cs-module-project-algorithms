@@ -3,9 +3,24 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    # Your code here
+    count = {}
+    for num in arr:
+        if num not in count:
+            count[num] = 1                      # adds a key value pair if the key didn't exist in the dictionary before, or changes the value if the key does exist
+        else:
+            count[num] += 1
+    for num, frequency in count.items():        # unpacking key value pair
+        if frequency == 1:
+            return num
 
-    pass
+    # for num in count:
+    #     if count[num] == 1:
+    #         return num
+
+    # .count is a linear method -- takes too long
+    # for num in arr:
+    #     if arr.count(num) == 1:
+    #         return num
 
 
 if __name__ == '__main__':
